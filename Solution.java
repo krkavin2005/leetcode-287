@@ -1,12 +1,16 @@
 class Solution {
-    public boolean searchMatrix(int[][] matrix, int target) {
-        int r=0;
-        int c=matrix[0].length-1;
-        while(r<matrix.length && c>=0){
-            if(matrix[r][c]==target) return true;
-            else if(matrix[r][c]>target) c--;
-            else r++;
+    public int findDuplicate(int[] nums) {
+        int slow=0,fast=0;
+        while(true){
+            slow=nums[slow];
+            fast=nums[nums[fast]];
+            if(slow==fast) break;
         }
-        return false;
+        int slow2=0;
+        while(true){
+            slow=nums[slow];
+            slow2=nums[slow2];
+            if(slow==slow2) return slow;
+        }
     }
 }
